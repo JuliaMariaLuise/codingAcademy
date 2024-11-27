@@ -4,18 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style/stylesheet.css">
-  <title>Calender</title>
-  
+  <title>Calendar</title>
 </head>
 <body>
 
+  <!-- Header with Navigation Buttons -->
   <div class="header">
-    <button class="button" onclick="changeMonth(-1)">« previous Month</button>
-    <h1 id="monthYear">NOVEMBER</h1>
-    <button class="button" onclick="changeMonth(1)">next Month »</button>
+    <button class="button prev">« previous Month</button>
+    <h1 id="monthYear"></h1>
+    <button class="button next">next Month »</button>
   </div>
 
+  <!-- Calendar Grid -->
   <div class="calendar" id="calendar">
+    <!-- Weekday Names -->
     <div class="day-name">MO</div>
     <div class="day-name">DI</div>
     <div class="day-name">MI</div>
@@ -24,6 +26,21 @@
     <div class="day-name">SA</div>
     <div class="day-name">SO</div>
   </div>
-  <script src="../scripts/script.js"></script>
+
+<!-- Event Popup -->
+<div id="eventPopup">
+  <h3 id="popupDate">Events</h3>
+  <div id="popupEvents"></div>
+  <form id="addEventForm">
+      <input type="text" id="newEvent" placeholder="Event Title">
+      <textarea id="newEventDescription" placeholder="Event Description"></textarea>
+      <button type="submit">Save Event</button>
+      <button type="button" id="cancelEvent">Cancel</button>
+  </form>
+  <button id="closePopup">Close</button>
+</div>
+
+  <!-- Script -->
+  <script src="../js/script.js"></script>
 </body>
 </html>

@@ -1,75 +1,188 @@
+/* === GLOBAL STYLES === */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #101010;
-    color: #FFFFFF;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-   
-    
-  }
-  
-  .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-  }
-  
-  .button {
-    background-color: #00FF66;
-    border: none;
-    color: #101010;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    margin: 0 10px;
-    border-radius: 5px;
-  }
-  
-  h1 {
-    font-size: 2em;
-    letter-spacing: 0.1em;
-    color: #00FF66;
-  }
-  
-  .calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .day-name {
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #00FF66;
-  }
-  
-  .day.today {
-    border: 2px solid #FF4C4C; 
-  }
-  
-  .day {
-    background-color: #1C1C2D;
-    padding: 25px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #e0e0e0;
-  }
-  
-  .day.event {
-    border: 2px solid #00FF66; 
-  }
-  
-  .empty {
-    background-color: transparent;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #101010;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* === HEADER STYLES === */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+h1 {
+  font-size: 1.8em;
+  color: #00FF66;
+  margin: 0 10px;
+  letter-spacing: 0.1em;
+}
+
+.button {
+  background-color: #00FF66;
+  border: none;
+  color: #101010;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #00CC52;
+}
+
+.day {
+  background-color: #1C1C2D;
+  padding: 25px;
+  border-radius: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  text-align: center;
+}
+
+
+/* === CALENDAR STYLES === */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  padding: 10px;
+  max-width: 1000px; /* Allows space for all 31 days */
+  margin: 0 auto;
+}
+
+.day-name {
+  font-weight: bold;
+  font-size: 1em;
+  color: #00FF66;
+  text-align: center;
+}
+
+.day {
+  background-color: #1C1C2D;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px; /* Uniform height for all day boxes */
+}
+
+.day.today {
+  border: 2px solid #FF4C4C;
+}
+
+.day.event {
+  border: 2px solid #00FF66;
+}
+
+.empty {
+  background-color: transparent;
+  height: 80px; /* Matches day fields for consistent spacing */
+}
+
+/* === POPUP STYLES === */
+#eventPopup {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: 90%;
+  max-width: 400px;
+  background-color: #1C1C2D;
+  color: #FFFFFF;
+  border: 2px solid #00FF66;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 255, 102, 0.5);
+}
+
+#eventPopup h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #00FF66;
+}
+
+#popupEvents {
+  margin-bottom: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+/* === FORM STYLES === */
+#addEventForm {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#newEvent,
+#newEventDescription {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #00FF66;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  color: #101010;
+  box-sizing: border-box; /* Ensures padding fits within width */
+}
+
+#newEventDescription {
+  height: 70px;
+  resize: none; /* Prevents resizing for consistent design */
+}
+
+#newEvent::placeholder,
+#newEventDescription::placeholder {
+  color: #888888;
+}
+
+#addEventForm button {
+  background-color: #00FF66;
+  color: #101010;
+  border: none;
+  padding: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#addEventForm button:hover {
+  background-color: #00CC52;
+}
+
+/* === CLOSE BUTTON === */
+#closePopup,
+#cancelEvent {
+  background-color: #FF4C4C;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#closePopup:hover,
+#cancelEvent:hover {
+  background-color: #FF6666;
+}
