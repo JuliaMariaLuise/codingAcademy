@@ -44,7 +44,7 @@ A dynamic calendar application that allows users to view, manage, and interact w
 5. View All Events: Click the "View Event Details" button to see a grouped and sorted list of events by month.
 
 ## File Structure
-codingAcademy
+```codingAcademy
 ├── application
 ├── backend
 ├── frontend
@@ -57,7 +57,7 @@ codingAcademy
 ├── DB
 │   └── sportData.json         # Sample event data
 └── README.md                  # Project documentation
-
+```
 ## Contribuuting
 1. Fork the repository
 2. Create a new branch
