@@ -8,6 +8,7 @@
 </head>
 <body>
 
+
   <!-- Header with Navigation Buttons -->
   <div class="header">
     <button class="button prev">« previous Month</button>
@@ -19,19 +20,28 @@
   <div class="calendar" id="calendar">
     <!-- Weekday Names -->
     <div class="day-name">MO</div>
-    <div class="day-name">DI</div>
-    <div class="day-name">MI</div>
-    <div class="day-name">DO</div>
+    <div class="day-name">TU</div>
+    <div class="day-name">WE</div>
+    <div class="day-name">TH</div>
     <div class="day-name">FR</div>
     <div class="day-name">SA</div>
-    <div class="day-name">SO</div>
+    <div class="day-name">SU</div>
+    <div class="day"></div>
+  </div>
+  <!-- Add Event Detail Button -->
+  <div class="details-section">
+    <button id="viewEventDetails" class="view-details-button">View Event Details</button>
   </div>
 
+  <!-- Event Detail Container -->
+  <div id="eventDetailContainer" class="event-detail-container"></div>
+
+
 <!-- Event Popup -->
-<div id="eventPopup">
+<div id="eventPopup" style="display: none;">
   <h3 id="popupDate">Events</h3>
   <div id="popupEvents"></div>
-  <form id="addEventForm">
+  <form id="addEventForm" style="display: none;">
       <input type="text" id="newEvent" placeholder="Event Title">
       <textarea id="newEventDescription" placeholder="Event Description"></textarea>
       <button type="submit">Save Event</button>
@@ -41,6 +51,6 @@
 </div>
 
   <!-- Script -->
-  <script src="../js/script.js"></script>
+  <script src="../js/javascript.js"></script>
 </body>
 </html>

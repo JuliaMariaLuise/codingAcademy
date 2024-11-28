@@ -56,20 +56,22 @@ h1 {
 /* === CALENDAR STYLES === */
 .calendar {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-  padding: 10px;
-  max-width: 1000px; /* Allows space for all 31 days */
-  margin: 0 auto;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto 1fr; /* Erste Zeile für Wochentage, zweite für Tage */
+    gap: 5px;
+    padding: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .day-name {
   font-weight: bold;
-  font-size: 1em;
-  color: #00FF66;
-  text-align: center;
+    font-size: 1.2em; /* Größerer Text für bessere Sichtbarkeit */
+    color: #00FF66; /* Kontrastreiche Farbe */
+    text-align: center;
+    padding: 5px; /* Abstand hinzufügen */
+    border-bottom: 1px solid #00FF66; /* Optionaler Unterstrich zur Trennung */
 }
-
 .day {
   background-color: #1C1C2D;
   padding: 10px;
@@ -125,6 +127,18 @@ h1 {
   max-height: 200px;
   overflow-y: auto;
   text-align: left;
+}
+.event-item {
+  padding: 10px;
+  border: 1px solid #00FF66;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.no-events {
+  text-align: center;
+  font-style: italic;
+  color: #888;
 }
 
 /* === FORM STYLES === */
@@ -185,4 +199,119 @@ h1 {
 #closePopup:hover,
 #cancelEvent:hover {
   background-color: #FF6666;
+}
+/* === VIEW DETAILS BUTTON === */
+.view-details-button, .hide-details-button {
+  background-color: #00FF66;
+  color: #101010;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 15px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.view-details-button:hover, .hide-details-button:hover {
+  background-color: #00CC52;
+  transform: scale(1.05);
+}
+
+.hide-details-button {
+  background-color: #FF4C4C;
+}
+
+.hide-details-button:hover {
+  background-color: #FF6666;
+}
+
+/* === EVENT DETAIL CONTAINER === */
+#eventDetailContainer {
+  display: none; /* Standardmäßig verstecken */
+}
+
+#eventDetailContainer.active {
+  display: block; /* Zeige den Container, wenn aktiv */
+}
+
+.event-detail-container {
+  background-color: #1C1C2D;
+  color: #FFFFFF;
+  padding: 25px;
+  border: 2px solid #00FF66;
+  border-radius: 12px;
+  margin: 30px auto;
+  max-width: 850px;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 255, 102, 0.5);
+}
+
+.month-headline {
+  font-size: 1.8em; /* Große Schriftgröße */
+  font-weight: bold; /* Fettschrift */
+  text-transform: uppercase; /* Alle Buchstaben groß */
+  color: #00FF66; /* Grüner Farbton */
+  text-align: left; /* Linksbündig */
+  margin-bottom: 15px; /* Abstand zur Event-Liste */
+  padding-bottom: 5px; /* Polsterung unten */
+  border-bottom: 2px solid #00FF66; /* Unterstrich */
+}
+
+/* Unordered List Styling */
+.event-detail-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.event-detail-container ul li {
+  background-color: #2A2A3D;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #00FF66;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.event-detail-container ul li:hover {
+  background-color: #3A3A4D;
+  transform: scale(1.02);
+}
+
+/* Event Title */
+.event-detail-container ul li .event-title {
+  font-size: 1.3em;
+  margin-bottom: 8px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+/* Event Description */
+.event-detail-container ul li .event-description {
+  font-style: italic;
+  font-size: 1em;
+  color: #CCCCCC;
+}
+
+/* Highlight Labels */
+.event-detail-container ul li span {
+  font-weight: bold;
+  color: #00FF66;
+}
+/* === CALENDAR DAY HOVER EFFECT === */
+.day:hover {
+  background-color: #2A2A3D; 
+  border: 2px solid #00CC52; 
+  color: #FFFFFF; 
+  cursor: pointer; 
+  transform: scale(1.05); 
+  transition: background-color 0.3s, transform 0.2s; 
+}
+
+/* === BUTTON HOVER EFFECT FOR PREV/NEXT MONTH === */
+.button:hover {
+  background-color: #00CC52; 
+  transform: scale(1.05); 
+  transition: background-color 0.3s, transform 0.2s; 
 }
